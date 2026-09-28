@@ -5,6 +5,10 @@
 
 # Invoke-CommandAs
 
+> **PowerShell 7 note:** `Invoke-CommandAs` depends on the `PSScheduledJob` module (`Register-ScheduledJob`, etc.), which only ships with Windows PowerShell (Desktop edition) and is not available under PowerShell 7 (Core edition). As a result, `-AsSystem`/`-AsUser`/`-AsInteractive`/`-AsGMSA` currently fail under `pwsh`.
+>
+> This repository also contains [`Invoke-CommandAs7`](Invoke-CommandAs7/), an **experimental fork** that removes the `PSScheduledJob` dependency so the module works under both Windows PowerShell 5.1 and PowerShell 7+. It ships as a separate module (own name/GUID) so it can be installed side by side with the original without conflicting, and exports the same `Invoke-CommandAs` command, so usage is unchanged. If it proves stable, it is intended to either replace this module 1:1 or have its changes merged back in here.
+
 ```
 .SYNOPSIS
 
